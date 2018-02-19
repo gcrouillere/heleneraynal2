@@ -124,48 +124,50 @@
         margin-top: 10px;
       }
     }
-    .allpricesmobile-w {
-      position: absolute;
-      top: -62px;
-      right: 16px;
-      width: 109px;
-      height: 44px;
-      background: rgba(255, 255, 255, 0.7);
-      border: 1px solid grey;
-      text-align: center;
-      border-radius: 27px;
-      margin: 0;
-      box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.1);
-      .prix-index-mobile {
-        font-size: $font-size-h4;
+    .body-darktheme {
+      .allpricesmobile-w {
+        position: absolute;
+        top: -62px;
+        right: 16px;
+        width: 109px;
+        height: 44px;
+        background: rgba(255, 255, 255, 0.7);
+        border: 1px solid grey;
+        text-align: center;
+        border-radius: 27px;
         margin: 0;
-        margin-top: 3px;
-        color: black;
+        box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.1);
+        .prix-index-mobile {
+          font-size: $font-size-h4;
+          margin: 0;
+          margin-top: 3px;
+          color: black;
+        }
+        .previous-price-mobile {
+          font-size: 13px;
+          font-weight: 100;
+          text-decoration: line-through;
+          color: black;
+          margin: 0;
+        }
       }
-      .previous-price-mobile {
-        font-size: 13px;
-        font-weight: 100;
-        text-decoration: line-through;
-        color: black;
+      .allpricesmobile-wo, .allpricesmobile-w-zero {
+        position: absolute;
+        top: -50px;
+        right: 16px;
+        width: 109px;
+        height: 31px;
+        background: rgba(255, 255, 255, 0.7);
+        border: 1px solid grey;
+        text-align: center;
+        border-radius: 27px;
         margin: 0;
-      }
-    }
-    .allpricesmobile-wo, .allpricesmobile-w-zero {
-      position: absolute;
-      top: -50px;
-      right: 16px;
-      width: 109px;
-      height: 31px;
-      background: rgba(255, 255, 255, 0.7);
-      border: 1px solid grey;
-      text-align: center;
-      border-radius: 27px;
-      margin: 0;
-      box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.1);
-      .prix-index-mobile {
-        font-size: $font-size-h4;
-        margin: 0;
-        margin-top: 3px;
+        box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.1);
+        .prix-index-mobile {
+          font-size: $font-size-h4;
+          margin: 0;
+          margin-top: 3px;
+        }
       }
     }
   }

@@ -2,8 +2,7 @@
 <div class="navbar-laptop-lighttheme hidden-xs hidden-sm opacity-on-laptop">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-brand", title: "Retour à l'accueil de notre offre de boutique ligne" do %>
-    <%= render 'shared/logo_pic' %>
-    <%= @logositepictag %>
+    <%= "#{ENV['FIRSTNAME']} #{ENV['LASTNAME'].capitalize}" %>
   <% end %>
 
   <!-- Different navigation if login or not -->
@@ -20,9 +19,6 @@
         <% end %>
         <%= link_to info_path do %>
           <span>Infos</span>
-        <% end %>
-        <%= link_to new_lesson_path do %>
-          <span>Réserver un stage</span>
         <% end %>
         <a href="#" id="lighttheme-filter-search"><%= image_tag "search.svg", class: "searchimg"%></a>
         <% if session[:order].present? %>
@@ -50,9 +46,6 @@
           <span>Infos</span>
         <% end %>
         <a href="#" id="lighttheme-filter-search"><%= image_tag "search.svg", class: "searchimg"%></a>
-        <%= link_to new_lesson_path do %>
-          <span>Réserver un stage</span>
-        <% end %>
       </div>
     </div>
   <% end %>
@@ -62,8 +55,7 @@
 <div class="navbar-mobile-lighttheme hidden-md hidden-lg">
  <!-- Logo -->
   <%= link_to root_path, class: "navbar-brand-mobile" do %>
-    <%= render 'shared/logo_pic' %>
-    <%= @logositepictag %>
+    <%= "#{ENV['FIRSTNAME'][0]} #{ENV['LASTNAME'][0].capitalize}" %>
   <% end %>
 
   <div class="navbar-item">
@@ -73,9 +65,6 @@
       <% end %>
       <%= link_to info_path do %>
         <%= image_tag "info.svg", class: "infoimg"%>
-      <% end %>
-      <%= link_to new_lesson_path do %>
-        <span>Stage</span>
       <% end %>
       <a href="#" id="lighttheme-filter-search-mobile"><%= image_tag "search.svg", class: "searchimg"%></a>
       <% if user_signed_in? %>

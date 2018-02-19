@@ -2,8 +2,7 @@
 <div class="navbar-laptop hidden-xs hidden-sm">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-brand", title: "Retour à l'accueil de notre offre de boutique ligne" do %>
-    <%= render 'shared/logo_pic' %>
-    <%= @logositepictag %>
+    <%= "#{ENV['FIRSTNAME']} #{ENV['LASTNAME'].capitalize}" %>
   <% end %>
 
   <!-- Different navigation if login or not -->
@@ -22,9 +21,6 @@
         <% end %>
         <%= link_to info_path do %>
           <span><i class="fa fa-female"></i> Info</span>
-        <% end %>
-        <%= link_to new_lesson_path do %>
-          <span><i class="fa fa-calendar-o"></i> Réserver un stage</span>
         <% end %>
         <% if session[:order].present? %>
           <% if Order.where(id: session[:order]).present? %>
@@ -50,9 +46,6 @@
         <%= link_to info_path do %>
             <span><i class="fa fa-female"></i> Info</span>
         <% end %>
-        <%= link_to new_lesson_path do %>
-          <span><i class="fa fa-calendar-o"></i> Réserver un stage</span>
-        <% end %>
         <%= link_to new_user_session_path, class: "navbar-item navbar-link" do %>
           <span><i class="fa fa-sign-in"></i> Se connecter</span>
         <% end %>
@@ -65,8 +58,7 @@
 <div class="navbar-mobile hidden-md hidden-lg">
  <!-- Logo -->
   <%= link_to root_path, class: "navbar-brand-mobile" do %>
-    <%= render 'shared/logo_pic' %>
-    <%= @logositepictag %>
+    <%= "#{ENV['FIRSTNAME'][0]} #{ENV['LASTNAME'][0].capitalize}" %>
   <% end %>
 
   <div class="navbar-item">
@@ -74,10 +66,6 @@
       <%= link_to info_path do %>
         <li><span><i class="fa fa-female"></i> Info</span></li>
       <% end %>
-      <%= link_to new_lesson_path do %>
-        <span><i class="fa fa-calendar-o"></i> Stage</span>
-      <% end %>
-
       <% if user_signed_in? %>
         <% if session[:order].present? %>
           <% if Order.where(id: session[:order]).present? %>
