@@ -1,5 +1,5 @@
 ActiveAdmin.register Ceramique, as: 'Produits' do
-  permit_params :name, :description, :stock, :weight, :category_id, :price_cents, photos: []
+  permit_params :name, :description, :stock, :weight, :category_id, :price_cents, :extract, photos: []
   menu priority: 1
   config.filters = false
 
@@ -31,6 +31,7 @@ ActiveAdmin.register Ceramique, as: 'Produits' do
   f.inputs "" do
     f.input :name
     f.input :description
+    f.input :extract, label: "Extrait", :hint => "Quelques mots, à retrouver sur chaque fiche produit, dans la liste complète"
     f.input :stock
     f.input :weight, :hint => "Poids en grammes"
     f.input :category
@@ -46,6 +47,7 @@ show do |ceramique|
     row :description
     row :stock
     row :weight
+    row :extract
     row "Categorie" do |ceramique|
       ceramique.category.name
     end

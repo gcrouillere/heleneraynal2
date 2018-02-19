@@ -24,6 +24,7 @@ Les <%="#{ENV['MODEL']} de #{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capi
           <div class="col-md-6 product-show-half-top-wrapper">
           <div class="ceramique-images">
             <img class="img-front" id="zoom01" src="<%= cl_image_path @ceramique.photos[0].path %>" data-zoom-image="<%= cl_image_path @ceramique.photos[0].path %>" alt="<%=@ceramique.name%>">
+            <%= image_tag "aaflogoblack.jpg", class: "aaflogo" %>
             <div class="images">
               <% @ceramique.photos.each_with_index do |photo, index| %>
                 <% if index < 4 %>

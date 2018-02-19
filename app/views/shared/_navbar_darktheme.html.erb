@@ -5,6 +5,12 @@
     <%= "#{ENV['FIRSTNAME']} #{ENV['LASTNAME'].capitalize}" %>
   <% end %>
 
+  <div class="middle-link">
+    <%= link_to ceramiques_path do %>
+      <span>Boutique en ligne</span>
+    <% end %>
+  </div>
+
   <!-- Different navigation if login or not -->
   <% if user_signed_in? %>
 
@@ -15,18 +21,18 @@
           <%= link_to admin_root_path do %>
             <span>Administration</span>
           <% end %>
+          <%= link_to agenda_path do %>
+            <span>Agenda</span>
+          <% end %>
         <% end %>
         <%= link_to root_path do %>
           <span>Accueil</span>
         <% end %>
-        <%= link_to ceramiques_path do %>
-          <span>Boutique</span>
+        <%= link_to info_path do %>
+          <span>A propos</span>
         <% end %>
         <%= link_to contact_path do %>
-          <span>Infos</span>
-        <% end %>
-        <%= link_to new_lesson_path do %>
-          <span>Réserver un stage</span>
+          <span>Contact</span>
         <% end %>
         <% if session[:order].present? %>
           <% if Order.where(id: session[:order]).present? %>
@@ -46,14 +52,11 @@
         <%= link_to root_path do %>
           <span>Accueil</span>
         <% end %>
-        <%= link_to ceramiques_path do %>
-          <span>Boutique</span>
+        <%= link_to info_path do %>
+          <span>A propos</span>
         <% end %>
         <%= link_to contact_path do %>
-          <span>Infos</span>
-        <% end %>
-        <%= link_to new_lesson_path do %>
-          <span>Réserver un stage</span>
+          <span>Contact</span>
         <% end %>
       </div>
     </div>
@@ -72,11 +75,11 @@
       <%= link_to ceramiques_path do %>
         <span>Shop</span>
       <% end %>
-      <%= link_to contact_path do %>
-        <span>Info</span>
+      <%= link_to info_path do %>
+        <span>A propos</span>
       <% end %>
-      <%= link_to new_lesson_path do %>
-        <span>Stage</span>
+      <%= link_to contact_path do %>
+        <span>Contact</span>
       <% end %>
       <% if user_signed_in? %>
         <% if session[:order].present? %>

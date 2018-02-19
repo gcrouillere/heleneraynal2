@@ -1,5 +1,12 @@
 $(document).ready(function() {
 
+    $('#input0').keyup(function() {
+    var converter = new showdown.Converter(),
+    text = $(this).val(),
+    html = converter.makeHtml(text);
+      $('#live-text0').html(html);
+  });
+
   $('#input1').keyup(function() {
     var converter = new showdown.Converter(),
     text = $(this).val(),
@@ -26,5 +33,12 @@ $(document).ready(function() {
     text = $(this).val(),
     html = converter.makeHtml(text);
       $('#live-text4').html(html);
+  });
+
+  $('#input5').keyup(function() {
+    var converter = new showdown.Converter(),
+    text = $(this).val(),
+    html = converter.makeHtml(text);
+      $('#live-text5').html(html);
   });
 });

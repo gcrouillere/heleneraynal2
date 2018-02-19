@@ -1,7 +1,13 @@
-<% @darktheme1photopath = image_path ENV['DARKTHEMEPHOTO'] %>
-<% @darktheme2photopath = image_path ENV['DARKTHEMEPHOTO'] %>
-<% @darktheme3photopath = image_path ENV['DARKTHEMEPHOTO'] %>
-<% @darktheme4photopath = image_path ENV['DARKTHEMEPHOTO'] %>
+<% @darktheme1photopath = image_path ENV['DARKTHEMEPHOTO1'] %>
+<% @darktheme2photopath = image_path ENV['DARKTHEMEPHOTO2'] %>
+<% @darktheme3photopath = image_path ENV['DARKTHEMEPHOTO3'] %>
+<% @darktheme4photopath = image_path ENV['DARKTHEMEPHOTO4'] %>
+<% @darktheme5photopath = image_path ENV['DARKTHEMEPHOTO5'] %>
+<% @darktheme6photopath = image_path ENV['DARKTHEMEPHOTO6'] %>
+<% @darktheme7photopath = image_path ENV['DARKTHEMEPHOTO7'] %>
+<% @darktheme8photopath = image_path ENV['DARKTHEMEPHOTO8'] %>
+<% @darktheme9photopath = image_path ENV['DARKTHEMEPHOTO9'] %>
+<% @darktheme10photopath = image_path ENV['DARKTHEMEPHOTO10'] %>
 <% if @admin %>
   <% if  @admin.darktheme1photo.present? %>
     <% @darktheme1photopath = cl_image_path @admin.darktheme1photo.path %>
@@ -14,5 +20,23 @@
   <% end %>
   <% if  @admin.darktheme4photo.present? %>
     <% @darktheme4photopath = cl_image_path @admin.darktheme4photo.path %>
+  <% end %>
+    <% if  @admin.darktheme5photo.present? %>
+    <% @darktheme5photopath = cl_image_path @admin.darktheme5photo.path %>
+  <% end %>
+    <% if  @admin.darktheme6photo.present? %>
+    <% @darktheme6photopath = cl_image_path @admin.darktheme6photo.path %>
+  <% end %>
+    <% if  @admin.darktheme7photo.present? %>
+    <% @darktheme7photopath = cl_image_path @admin.darktheme7photo.path %>
+  <% end %>
+    <% if  @admin.darktheme8photo.present? %>
+    <% @darktheme8photopath = cl_image_path @admin.darktheme8photo.path %>
+  <% end %>
+    <% if  @admin.darktheme9photo.present? %>
+    <% @darktheme9photopath = cl_image_path @admin.darktheme9photo.path %>
+  <% end %>
+    <% if  @admin.darktheme10photo.present? %>
+    <% @darktheme10photopath = cl_image_path @admin.darktheme10photo.path %>
   <% end %>
 <% end %>

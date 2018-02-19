@@ -7,9 +7,16 @@
     }
     .ceramique-images {
       padding-left: 12px;
+      position: relative;
       .img-front {
         border-radius: $project-border-radius;
         width: 100%;
+      }
+      .aaflogo {
+        width: 8%;
+        position: absolute;
+        top: 0px;
+        left: 12px;
       }
       .images {
         display: flex;

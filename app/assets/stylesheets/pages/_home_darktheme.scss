@@ -4,30 +4,53 @@
 }
 
 .banner-darktheme {
-  padding: 10px 30px 30px 30px;
-  position: relative;
-  .photo1, .photo4 {
+  padding: 30px;
+  img {
     width: 100%;
     padding-bottom: 30px;
     border-radius: $project-border-radius;
   }
-  .photos2and3 {
+  .photo1, .photo2, .photo3, .photo4, .photo5, .photo6, .photo7, .photo8, .photo9, .photo10 {
+    position: relative;
+    .photo-update-box {
+      img {
+        width: auto;
+      }
+    }
+  }
+  .photos3and4, .photos8and9 {
     width: 100%;
     display: flex;
-    position: relative;
-    .photo2 {
+    .photo3, .photo8 {
       width: 50%;
-      margin-right: 15px;
-      margin-bottom: 30px;
+      margin: 0px 15px 30px 0px;
+      padding-right: 15px;
       border-radius: $project-border-radius;
     }
-    .photo3 {
-      padding-bottom: 30px;
+    .photo4, .photo9  {
       width: 50%;
       padding-left: 15px;
       border-radius: $project-border-radius;
-      img {
-        width: 100%;
+    }
+  }
+  .photo5, .photo6, .photo7, .photo10 {
+    width: 100%;
+    img {
+      width: 100%;
+    }
+  }
+  .credit-text {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    span {
+      color: grey;
+      font-size: 15px;
+      font-weight: 100;
+      a {
+        color: grey;
+        font-size: 15px;
+        font-weight: 100;
       }
     }
   }
