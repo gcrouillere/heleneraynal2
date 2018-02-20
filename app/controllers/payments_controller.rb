@@ -8,7 +8,7 @@ class PaymentsController < ApplicationController
     else
       set_order
     end
-    render "new_#{@active_theme.name}"
+    render "new_#{@active_theme.name}" and return
   end
 
   def create
