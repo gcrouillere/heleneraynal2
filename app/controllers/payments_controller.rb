@@ -8,7 +8,6 @@ class PaymentsController < ApplicationController
     else
       set_order
     end
-    render "new_#{@active_theme.name}" and return
   end
 
   def create
@@ -48,7 +47,7 @@ class PaymentsController < ApplicationController
     # REDIRECT TO PAYMENT
     rescue Stripe::CardError => e
     flash[:error] = e.message
-    redirect_to new_order_payment_path(@order) and return
+    redirect_to new_order_payment_path(@order)
   end
 
   private
