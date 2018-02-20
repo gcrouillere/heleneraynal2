@@ -45,9 +45,17 @@
     color: white;
     height: auto;
   }
-   .middle-link a {
-    font-size: 18px;
-   }
+   .middle-link {
+      a {
+        font-size: 18px;
+        position: absolute;
+        top: 21px;
+        left: calc(50% - 74px);
+        span {
+          width: 148px;
+        }
+      }
+    }
   .nav-bar-list a {
     font-size: 16px;
   }

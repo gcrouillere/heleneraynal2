@@ -39,6 +39,7 @@ Les <%="#{ENV['MODEL']} de #{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capi
             <div class="description">
               <h1> <%= @ceramique.name.capitalize%> </h1>
               <%= facebook_share_id("facebookshare") %>
+              <%= link_to " https://www.ateliersdart.com", target: "_blank" do %> <%= image_tag "aaflogoblack.jpg", class: "aaflogo2" %> <% end %>
               <p class="description"> <%= @ceramique.description.gsub(/\n/, '<br>').html_safe%> </p>
               <hr>
             </div>
