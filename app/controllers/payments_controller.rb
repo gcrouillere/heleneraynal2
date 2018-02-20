@@ -48,7 +48,7 @@ class PaymentsController < ApplicationController
     # REDIRECT TO PAYMENT
     rescue Stripe::CardError => e
     flash[:error] = e.message
-    redirect_to new_order_payment_path(@order)
+    redirect_to new_order_payment_path(@order) and return
   end
 
   private
