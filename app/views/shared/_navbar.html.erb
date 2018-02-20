@@ -20,7 +20,7 @@
           <span><i class="fa fa-bars"></i> Boutique en ligne</span>
         <% end %>
         <%= link_to info_path do %>
-          <span><i class="fa fa-female"></i> Info</span>
+          <span><i class="fa fa-female"></i> Infos</span>
         <% end %>
         <% if session[:order].present? %>
           <% if Order.where(id: session[:order]).present? %>
@@ -44,7 +44,7 @@
           <span><i class="fa fa-bars"></i> Boutique en ligne</span>
         <% end %>
         <%= link_to info_path do %>
-            <span><i class="fa fa-female"></i> Info</span>
+            <span><i class="fa fa-female"></i> Infos</span>
         <% end %>
         <%= link_to new_user_session_path, class: "navbar-item navbar-link" do %>
           <span><i class="fa fa-sign-in"></i> Se connecter</span>
