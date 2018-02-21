@@ -5,6 +5,9 @@
   background: rgba(255, 255, 255, 0.3);
   .contact {
     display: flex;
+    a {
+      text-decoration: none;
+    }
     h3 {
       font-size: 18px;
       font-weight: 400;
