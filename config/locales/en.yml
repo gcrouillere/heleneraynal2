@@ -49,6 +49,7 @@ en:
           category: "Catégorie"
           price_cents: "Prix en cents d'€"
           weight: "Poids"
+          active: "En ligne ?"
         category:
           name: "Nom"
         lesson:

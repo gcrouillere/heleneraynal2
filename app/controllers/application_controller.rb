@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
   end
 
   def uniq_categories
-    @uniq_categories = Ceramique.all.map do |ceramique|
+    @uniq_categories = Ceramique.where(active: true).map do |ceramique|
       ceramique.category.name
     end
     @uniq_categories = @uniq_categories.uniq.sort

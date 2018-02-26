@@ -1,5 +1,5 @@
 ActiveAdmin.register Ceramique, as: 'Produits' do
-  permit_params :name, :description, :stock, :weight, :category_id, :price_cents, :extract, photos: []
+  permit_params :name, :description, :stock, :weight, :category_id, :price_cents, :extract, :active, photos: []
   menu priority: 1
   config.filters = false
 
@@ -9,6 +9,7 @@ ActiveAdmin.register Ceramique, as: 'Produits' do
     column :description
     column :stock
     column :weight
+    column :active
     column "Catégorie" do |ceramique|
       ceramique.category.name
     end
@@ -33,6 +34,7 @@ ActiveAdmin.register Ceramique, as: 'Produits' do
     f.input :description
     f.input :extract, label: "Extrait", :hint => "Quelques mots, à retrouver sur chaque fiche produit, dans la liste complète"
     f.input :stock
+    f.input :active
     f.input :weight, :hint => "Poids en grammes"
     f.input :category
     f.input :price_cents, :hint => "Prix en centimes d'euros. Ex: entrez 1200 pour un prix de 12 €"
@@ -48,6 +50,9 @@ show do |ceramique|
     row :stock
     row :weight
     row :extract
+    row "En ligne ?" do |ceramique|
+      ceramique.active
+    end
     row "Categorie" do |ceramique|
       ceramique.category.name
     end
