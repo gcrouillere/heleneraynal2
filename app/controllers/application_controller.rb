@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
   end
 
   def uniq_categories
-    @uniq_categories = Ceramique.all.map do |ceramique|
+    @uniq_categories = Ceramique.where(active: true).map do |ceramique|
       ceramique.category.name
     end
     @uniq_categories = @uniq_categories.uniq.sort
@@ -43,7 +43,7 @@ class ApplicationController < ActionController::Base
   def store_location
     # store last url as long as it isn't a /users path
     session[:previous_url] = request.fullpath unless request.fullpath =~ /\/users/
-    session[:dev_redirection_default] = "https://creermonecommerce.fr"
+    session[:dev_redirection_default] = "https://www.creermonecommerce.fr"
   end
 
   def after_sign_in_path_for(resource)
