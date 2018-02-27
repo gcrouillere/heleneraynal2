@@ -29,7 +29,6 @@ Les <%="#{ENV['MODEL']} de #{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capi
               <% end %>
               <% verticale ? classe = "verticale" : classe = "horizontale"  %>
               <img class="img-front-lighttheme <%= classe %> " id="zoom01" src="<%= cl_image_path @ceramique.photos[0].path, quality: "auto" %>" data-zoom-image="<%= cl_image_path @ceramique.photos[0].path, quality: "auto" %>" alt="<%=@ceramique.name%>">
-              <%= image_tag "aaflogoblack.jpg", class: "aaflogo#{classe}" %>
               <div class="images">
                 <% @ceramique.photos.each_with_index do |photo, index| %>
                   <% if index < 4 %>

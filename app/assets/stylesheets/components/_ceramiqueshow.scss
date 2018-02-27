@@ -2,23 +2,23 @@
   .product-show {
     margin-bottom: 30px;
     display: flex;
-    .product-show-half-top-wrapper {
+    .product-show-half-top-wrapper-left {
       padding: 0px;
+      max-width: 50%;
+    }
+    .product-show-half-top-wrapper-right {
+      min-width: 50%;
+      width: auto;
+      flex: 1 0 auto;
     }
     .ceramique-images {
       padding-left: 12px;
       position: relative;
-      .aaflogohorizontale {
-        width: 14%;
+      .aaflogo {
+        width: 13%;
         position: absolute;
         top: 0px;
         left: 12px;
-      }
-      .aaflogoverticale {
-        width: 9%;
-        position: absolute;
-        top: 0px;
-        left: calc(50% - 33px);
       }
       .img-front.horizontale {
         border-radius: $project-border-radius;
