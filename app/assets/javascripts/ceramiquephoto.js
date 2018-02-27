@@ -1,6 +1,7 @@
 $(document).ready(function() {
   $('body').on('click', '.thumbnail', toggleActiveThumbnail);
   $('body').on('click', '.thumbnail-lighttheme', toggleActiveThumbnailLighttheme);
+  if($('.ceramique-images').size() > 0) {replaceAAF()}
   $('#zoom01').elevateZoom({
     zoomType: "inner",
     cursor: "crosshair",
@@ -22,6 +23,16 @@ function toggleActiveThumbnail(event) {
   $('#zoom01').elevateZoom({
     zoomType: "inner",
     cursor: "crosshair",
+  });
+  replaceAAF()
+}
+
+function replaceAAF(event) {
+  var largeurTotale = $('.ceramique-images').width() / 2
+  var largeurPhoto = $('.img-front.verticale').width() / 2
+  var offset = largeurTotale - largeurPhoto
+  $('.aaflogo').css({
+    left: offset,
   });
 }
 
