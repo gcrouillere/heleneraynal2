@@ -29,7 +29,7 @@ function toggleActiveThumbnail(event) {
 
 function replaceAAF(event) {
   var largeurTotale = $('.ceramique-images').width() / 2
-  var largeurPhoto = $('.img-front.verticale').width() / 2
+  var largeurPhoto = $('.img-front').width() / 2
   var offset = largeurTotale - largeurPhoto
   $('.aaflogo').css({
     left: offset,
