@@ -5,11 +5,11 @@
     .product-show-half-top-wrapper-left {
       padding: 0px;
       max-width: 50%;
+      flex: 1 0 auto;
     }
     .product-show-half-top-wrapper-right {
       min-width: 50%;
       width: auto;
-      flex: 1 0 auto;
     }
     .ceramique-images {
       padding-left: 0px;
@@ -76,7 +76,7 @@
       .description {
         position: relative;
         .aaflogo2 {
-          width: 5%;
+          width: 23px;
           position: absolute;
           top: 3px;
           right: 66px;
