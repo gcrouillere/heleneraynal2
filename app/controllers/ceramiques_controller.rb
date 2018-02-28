@@ -3,7 +3,7 @@ class CeramiquesController < ApplicationController
 
   def index
     @dev_redirection = "https://www.creermonecommerce.fr"
-    @ceramiques = Ceramique.where(active: true)
+    macro_filter
     Offer.where(showcased: true).first ? (Offer.where(showcased: true).first.ceramiques.present? ? @front_offer = Offer.all.where(showcased: true).first : nil) : nil
     @front_offer ? @ceramiques_to_display_in_offer = Ceramique.all.where(offer: @front_offer) : nil
     clean_orders
@@ -42,6 +42,18 @@ class CeramiquesController < ApplicationController
         order.update(state: "lost")
         session[:order] = nil
       end
+    end
+  end
+
+  def macro_filter
+    if user_signed_in?
+      if current_user.admin
+        @ceramiques = Ceramique.all
+      else
+        @ceramiques = Ceramique.where(active: true)
+      end
+    else
+      @ceramiques = Ceramique.where(active: true)
     end
   end
 
