@@ -26,7 +26,7 @@ class CeramiquesController < ApplicationController
     @dev_redirection = "https://www.creermonecommerce.fr/produits"
     clean_orders
     @ceramique = Ceramique.friendly.find(params[:id])
-    @same_category_products = @ceramique.category.ceramiques - [@ceramique]
+    @same_category_products = @ceramique.category.ceramiques.where(active: true) - [@ceramique]
     @twitter_url = request.original_url.to_query('url')
     render "show_#{@active_theme.name}"
   end

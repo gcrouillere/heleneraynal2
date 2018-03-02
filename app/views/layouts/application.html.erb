@@ -50,6 +50,7 @@
         <div class="content-<%=@active_theme.name%>">
           <%= yield %>
         </div>
+        <%= render 'shared/darktheme_filter_2' %>
         <%= render "shared/footer_#{@active_theme.name}" %>
     <% end %>
 

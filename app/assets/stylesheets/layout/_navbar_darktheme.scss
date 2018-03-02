@@ -61,6 +61,15 @@
   }
 }
 
+#darktheme-filter-search {
+  margin-right: 20px;
+  .searchimg {
+    width: 20px;
+    top: -2px;
+    position: relative;
+  }
+}
+
 .navbar-laptop-darktheme, .navbar-mobile-darktheme {
     .nav-bar-list, .middle-link {
       cursor: pointer;

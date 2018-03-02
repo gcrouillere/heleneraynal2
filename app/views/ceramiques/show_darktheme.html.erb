@@ -29,7 +29,6 @@ Les <%="#{ENV['MODEL']} de #{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capi
               <% end %>
               <% verticale ? classe = "verticale" : classe = "horizontale"  %>
               <div class="front-image-div">
-                <%= render 'shared/product_image_overlay' %>
                 <img class="img-front <%= classe %> " id="zoom01" src="<%= cl_image_path @ceramique.photos[0].path, quality: "auto" %>" data-zoom-image="<%= cl_image_path @ceramique.photos[0].path, quality: "auto" %>" alt="<%=@ceramique.name%>">
               </div>
               <%= image_tag "aaflogoblack.jpg", class: "aaflogo" %>
