@@ -26,7 +26,7 @@
           <% if Order.where(id: session[:order]).present? %>
             <% if Order.where(id: session[:order]).first.state != "lost" %>
               <%= link_to order_path(Order.find(session[:order])) do %>
-                <span><i class="fa fa-shopping-cart"></i> Panier</span>
+                <span><i class="fa fa-shopping-cart"></i></span>
               <% end %>
             <% end %>
           <% end %>
@@ -45,6 +45,15 @@
         <% end %>
         <%= link_to info_path do %>
             <span><i class="fa fa-female"></i> Infos</span>
+        <% end %>
+        <% if session[:order].present? %>
+          <% if Order.where(id: session[:order]).present? %>
+            <% if Order.where(id: session[:order]).first.state != "lost" %>
+              <%= link_to order_path(Order.find(session[:order])) do %>
+                <span><i class="fa fa-shopping-cart"></i></span>
+              <% end %>
+            <% end %>
+          <% end %>
         <% end %>
         <%= link_to new_user_session_path, class: "navbar-item navbar-link" do %>
           <span><i class="fa fa-sign-in"></i> Se connecter</span>
@@ -69,13 +78,11 @@
       <%= link_to info_path do %>
         <li><span><i class="fa fa-female"></i> Info</span></li>
       <% end %>
-      <% if user_signed_in? %>
-        <% if session[:order].present? %>
-          <% if Order.where(id: session[:order]).present? %>
-            <% if Order.where(id: session[:order]).first.state != "lost" %>
-              <%= link_to order_path(Order.find(session[:order])) do %>
-                <span><i class="fa fa-shopping-cart"></i></span>
-              <% end %>
+      <% if session[:order].present? %>
+        <% if Order.where(id: session[:order]).present? %>
+          <% if Order.where(id: session[:order]).first.state != "lost" %>
+            <%= link_to order_path(Order.find(session[:order])) do %>
+              <span><i class="fa fa-shopping-cart"></i></span>
             <% end %>
           <% end %>
         <% end %>
