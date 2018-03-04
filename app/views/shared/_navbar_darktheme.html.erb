@@ -7,7 +7,7 @@
 
   <div class="middle-link">
     <%= link_to ceramiques_path do %>
-      <span>Boutique en ligne</span>
+      <span>Boutique céramique en ligne</span>
     <% end %>
   </div>
 
@@ -18,9 +18,6 @@
     <div class="navbar-item-darktheme">
       <div class="nav-bar-list">
         <% if current_user.admin %>
-          <%= link_to admin_root_path do %>
-            <span>Administration</span>
-          <% end %>
           <%= link_to agenda_path do %>
             <span>Agenda</span>
           <% end %>
@@ -31,7 +28,7 @@
         <%= link_to info_path do %>
           <span>A propos</span>
         <% end %>
-        <a href="#" id="darktheme-filter-search"><%= image_tag "searchwhite.svg", class: "searchimg"%></a>
+        <a href="#" id="darktheme-filter-search"><%= image_tag "searchwhite.svg", class: "searchimg"%> Filtrer</a>
         <%= link_to contact_path do %>
           <span>Contact</span>
         <% end %>
@@ -56,7 +53,7 @@
         <%= link_to info_path do %>
           <span>A propos</span>
         <% end %>
-        <a href="#" id="darktheme-filter-search"><%= image_tag "searchwhite.svg", class: "searchimg"%></a>
+        <a href="#" id="darktheme-filter-search"><%= image_tag "searchwhite.svg", class: "searchimg"%> Filtrer</a>
         <%= link_to contact_path do %>
           <span>Contact</span>
         <% end %>

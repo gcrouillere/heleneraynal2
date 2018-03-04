@@ -2,15 +2,20 @@
 <div class="hidden-xs">
   <div id="footer-darktheme">
     <div class="footer-links">
-      <% if user_signed_in? %>
-        <%= link_to destroy_user_session_path, method: :delete do %>
-          <span><i class="fa fa-sign-out"></i></span>
+      <div class="admin-links">
+        <% if user_signed_in? %>
+          <%= link_to destroy_user_session_path, method: :delete do %>
+            <span><i class="fa fa-sign-out"></i></span>
+          <% end %>
+            <%= link_to admin_root_path do %>
+              <i class="fa fa-unlock"></i>
+            <% end %>
+        <% else %>
+          <%= link_to new_user_session_path, class: "navbar-item navbar-link" do %>
+            <span><i class="fa fa-sign-in"></i></span>
+          <% end %>
         <% end %>
-      <% else %>
-        <%= link_to new_user_session_path, class: "navbar-item navbar-link" do %>
-          <span><i class="fa fa-sign-in"></i></span>
-        <% end %>
-      <% end %>
+      </div>
       <div class="contact-default">
         <a href="https://www.google.fr/maps/place/<%=ENV['ADDRESS']%>" target="blank"><i class="fa fa-map"></i></a>
         <i class="fa fa-envelope-o"></i>

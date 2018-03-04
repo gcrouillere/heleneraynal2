@@ -79,9 +79,11 @@
     #recherche  {
       width: 99%;
       border-radius: 1px;
+      color: white;
       transition: 0.1s background-color linear, 0.1s color linear;
     }
     #recherche:hover {
+      color: black;
       transition: 0.1s background-color linear, 0.1s color linear;
     }
   }
