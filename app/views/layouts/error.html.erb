@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Cette page n'existe plus</title>
+    <%= favicon_link_tag %>
+    <%= csrf_meta_tags %>
+    <%= action_cable_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+  </head>
+  <body>
+    <div class="body-darktheme">
+        <%= render "shared/navbar_darktheme" %>
+        <div class="content-darktheme">
+          <%= yield %>
+        </div>
+        <%= render 'shared/darktheme_filter_2' %>
+        <%= render "shared/footer_darktheme" %>
+    </div>
+      <%= javascript_include_tag "https://maps.google.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>
+      <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/markerclusterer/src/markerclusterer_compiled.js" %>
+      <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js" %>
+      <%= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/showdown/1.8.5/showdown.min.js" %>
+      <%= javascript_include_tag 'application' %>
+      <%= cloudinary_js_config %>
+      <%= yield(:after_js) %>
+  </body>
+</html>
