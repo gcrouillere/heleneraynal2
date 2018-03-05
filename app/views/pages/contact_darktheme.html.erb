@@ -1,8 +1,8 @@
 <% content_for(:description) do %>
-Vendez vos produits en ligne ! Site de e-commerce configurable. Affichez sur cette page des informations vous concernant : biographie, techniques utilisées.
+Mon atelier se situe à Saint-Quentin-la-Poterie, dans le Gard. Venez découvrir mes créations dans ce village dédié à la céramique et à la poterie. Profitez d'un séjour pour visiter le village, ses ateliers d'artisans d'art et ses marchés.
 <% end %>
 <% content_for(:title_tag) do %>
-  Page bio de votre site de e-commerce
+  Contactez Hélène Raynal. Créatrice de céramiques uniques.
 <% end %>
 
 <%= render 'shared/info_pics' %>
@@ -114,7 +114,7 @@ Vendez vos produits en ligne ! Site de e-commerce configurable. Affichez sur cet
     {
       "@context": "http://schema.org",
       "@type": "ArtGallery",
-      "name": "Les <%="#{ENV['MODEL']} de #{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize}"%>",
+      "name": "Les céramiques artisanales d'Hélène Raynal",
       "description": "Online craft store",
       "openingHours": "Mo-Fr 09:00-18:00",
       "telephone": "<%= ENV['TELEPHONE']%>",

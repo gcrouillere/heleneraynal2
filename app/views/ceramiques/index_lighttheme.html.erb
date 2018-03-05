@@ -1,8 +1,8 @@
 <% content_for(:description) do %>
-Site de e-commerce configurable. Créez votre compte et visualisez votre futur site de vente en ligne de vos produits.
+Mes céramiques sont en faïence émaillée. Le décor est composé de calligraphies, réalisées au pinceau. Ma production est constituée par des pièces uniques, utilitaires ou décoratives. Retrouvez dans la boutique des bols, des salières, des gobelets ...
 <% end %>
 <% content_for(:title_tag) do %>
-  Liste des produits à vendre
+  Liste des céramiques à vendre dans la boutique en ligne d'Hélène Raynal.
 <% end %>
 
 <% if @front_offer %>
@@ -66,6 +66,21 @@ Site de e-commerce configurable. Créez votre compte et visualisez votre futur s
 <%= render 'shared/subscribe' %>
 
 <% content_for(:after_js) do %>
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "ArtGallery",
+    "name": "Les céramiques artisanales d'Hélène Raynal",
+    "description": "Online craft store",
+    "openingHours": "Mo-Fr 09:00-18:00",
+    "telephone": "<%= ENV['TELEPHONE']%>",
+    "url": "<%=request.original_url%>",
+    "image":"<%=request.original_url%><%= image_path ENV['HOMEPIC']%>",
+    "address":"<%= ENV['ADDRESS'].gsub(/[+]/, ' ')%>",
+    "priceRange":"20€ à 800€"
+  }
+  </script>
+
   <!-- Include AlgoliaSearch JS Client and autocomplete.js library -->
   <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
   <script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js"></script>

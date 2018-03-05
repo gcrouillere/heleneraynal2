@@ -1,8 +1,8 @@
 <% content_for(:description) do %>
-Vendez vos produits en ligne ! Site de e-commerce configurable. Affichez sur cette page des informations vous concernant : biographie, techniques utilisées.
+Mes créations actuelles sont le fruit de vingt années de pratique et de recherche. Mes céramiques singulières sont en faïence, décorées au pinceau. Ce décor tend vers la calligraphie et laisse place à l'imagination et la représentation.
 <% end %>
 <% content_for(:title_tag) do %>
-  Page bio de votre site de e-commerce
+  Hélène Raynal, céramiste à Saint-Quentin-la-Poterie.
 <% end %>
 
 <%= render 'shared/info_pics' %>
@@ -87,7 +87,7 @@ Vendez vos produits en ligne ! Site de e-commerce configurable. Affichez sur cet
     {
       "@context": "http://schema.org",
       "@type": "ArtGallery",
-      "name": "Les <%="#{ENV['MODEL']} de #{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize}"%>",
+      "name": "Les céramiques artisanales d'Hélène Raynal",
       "description": "Online craft store",
       "openingHours": "Mo-Fr 09:00-18:00",
       "telephone": "<%= ENV['TELEPHONE']%>",

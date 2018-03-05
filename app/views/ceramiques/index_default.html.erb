@@ -1,8 +1,8 @@
 <% content_for(:description) do %>
-Site de e-commerce configurable. Créez votre compte et visualisez votre futur site de vente en ligne de vos produits.
+Mes céramiques sont en faïence émaillée. Le décor est composé de calligraphies, réalisées au pinceau. Ma production est constituée par des pièces uniques, utilitaires ou décoratives. Retrouvez dans la boutique des bols, des salières, des gobelets ...
 <% end %>
 <% content_for(:title_tag) do %>
-  Liste des produits à vendre
+  Liste des céramiques à vendre dans la boutique en ligne d'Hélène Raynal.
 <% end %>
 
 <% if @front_offer %>
@@ -162,7 +162,7 @@ Site de e-commerce configurable. Créez votre compte et visualisez votre futur s
   {
     "@context": "http://schema.org",
     "@type": "ArtGallery",
-    "name": "Les <%="#{ENV['MODEL']} de #{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize}"%>",
+    "name": "Les céramiques artisanales d'Hélène Raynal",
     "description": "Online craft store",
     "openingHours": "Mo-Fr 09:00-18:00",
     "telephone": "<%= ENV['TELEPHONE']%>",

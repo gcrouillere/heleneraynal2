@@ -1,14 +1,14 @@
 module MetaTagsHelper
   def meta_title
-    content_for?(:meta_title) ? content_for(:meta_title) : "Les #{ENV['MODEL']} de #{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize}"
+    content_for?(:meta_title) ? content_for(:meta_title) : "Les céramiques artisanales d'Hélène Raynal."
   end
 
   def meta_product_name
-    content_for?(:meta_product_name) ? content_for(:meta_product_name) : "Les #{ENV['MODEL']} de #{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize} - vente de produits de l'artisanat"
+    content_for?(:meta_product_name) ? content_for(:meta_product_name) : "Les céramiques artisanales d'Hélène Raynal."
   end
 
   def meta_description
-    description = "Des produits extraordinaires. Décor somptueux. Venez découvrir leur fabrication lors d'un stage."
+    description = "Vente de céramiques et poteries artisanales réalisées par Hélène Raynal. Découvrez dans la boutique mes créations uniques. Vous y retrouverez des céramiques utilitaires et décoratives. Mes créations sont en faïence et calligraphiées au pinceau."
     content_for?(:meta_description) ? content_for(:meta_description) : description
   end
 
