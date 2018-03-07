@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   mount Attachinary::Engine => "/attachinary"
 
   scope do
-    resources :ceramiques, path: ENV['MODEL'], only: [:create, :index, :destroy, :show]
+    resources :ceramiques, path: "ceramiques", only: [:create, :index, :destroy, :show]
   end
 
   resources :orders, only: [:show, :create, :destroy] do
