@@ -102,4 +102,8 @@ Rails.application.configure do
     config.poke_frequency = 600 # default is 1800s (30min)
   end
 
+  config.middleware.use Rack::HostRedirect, {
+    'heleneraynal.herokuapp.com' => 'www.heleneraynal.fr'
+  }
+
 end

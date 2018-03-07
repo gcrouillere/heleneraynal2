@@ -70,6 +70,9 @@ gem 'redcarpet'
 # Search
 gem "algoliasearch-rails"
 
+# Redirection
+gem 'rack-host-redirect'
+
 group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
