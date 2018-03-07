@@ -1,7 +1,7 @@
 <!-- Right Navigation LAPTOP -->
 <div class="navbar-laptop-lighttheme hidden-xs hidden-sm opacity-on-laptop">
   <!-- Logo -->
-  <%= link_to root_path, class: "navbar-brand", title: "Retour à l'accueil de notre offre de boutique ligne" do %>
+  <%= link_to root_path, class: "navbar-brand", title: "Retour à l'accueil du e-shop d'Hélène Raynal"  do %>
     <%= "#{ENV['FIRSTNAME']} #{ENV['LASTNAME'].capitalize}" %>
   <% end %>
 
@@ -63,7 +63,7 @@
 <!-- Right Navigation MOBILE -->
 <div class="navbar-mobile-lighttheme hidden-md hidden-lg">
  <!-- Logo -->
-  <%= link_to root_path, class: "navbar-brand-mobile" do %>
+  <%= link_to root_path, class: "navbar-brand-mobile", title: "Retour à l'accueil du e-shop d'Hélène Raynal" do %>
     <%= "#{ENV['FIRSTNAME'][0]} #{ENV['LASTNAME'][0].capitalize}" %>
   <% end %>
 
