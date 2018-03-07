@@ -2,13 +2,13 @@
 Mes céramiques sont en faïence émaillée. Le décor est composé de calligraphies, réalisées au pinceau. Ma production est constituée par des pièces uniques, utilitaires ou décoratives. Retrouvez dans la boutique des bols, des salières, des gobelets, des tableaux ...
 <% end %>
 <% content_for(:title_tag) do %>
-  Liste des céramiques à vendre dans la boutique en ligne d'Hélène Raynal.
+  Les céramiques artisanales à vendre dans la boutique d'Hélène Raynal
 <% end %>
 <% if @front_offer %>
   <% content_for(:meta_image) do %>
     <%= cl_image_path @front_offer.ceramiques.first.photos[0].path %>
   <% end %>
-  <% content_for(:meta_description) do %>
+  <% content_for(:description) do %>
     <% @front_offer.discount > 0 ? discount = " - Réduction de #{(@front_offer.discount * 100).to_i} % " : discount = "" %>
     <%= "#{@front_offer.title} #{discount} - #{@front_offer.description}".squish %>
   <% end %>

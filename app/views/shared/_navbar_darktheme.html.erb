@@ -1,14 +1,17 @@
 <!-- Right Navigation LAPTOP -->
-<div class="navbar-laptop-darktheme hidden-xs hidden-sm">
+<div class="navbar-laptop-darktheme hidden-xs">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-brand", title: "Retour à l'accueil de notre offre de boutique ligne" do %>
     HELENE RAYNAL
   <% end %>
 
   <div class="middle-link">
-    <%= link_to ceramiques_path do %>
-      <span>Boutique céramique en ligne</span>
-    <% end %>
+      <%= link_to ceramiques_path, class: "hidden-sm" do %>
+        <span>Boutique céramique en ligne</span>
+      <% end %>
+      <%= link_to ceramiques_path, class: "hidden-md hidden-lg" do %>
+        <span>Boutique en ligne</span>
+      <% end %>
   </div>
 
   <!-- Different navigation if login or not -->
@@ -22,9 +25,11 @@
             <span>Agenda</span>
           <% end %>
         <% end %>
-        <%= link_to root_path do %>
-          <span>Accueil</span>
-        <% end %>
+        <div class="hidden-sm">
+          <%= link_to root_path do %>
+            <span>Accueil</span>
+          <% end %>
+        </div>
         <%= link_to info_path do %>
           <span>A propos</span>
         <% end %>
@@ -47,9 +52,11 @@
   <% else %>
     <div class="navbar-item-darktheme">
       <div class="nav-bar-list">
-        <%= link_to root_path do %>
-          <span>Accueil</span>
-        <% end %>
+        <div class="hidden-sm">
+          <%= link_to root_path do %>
+            <span>Accueil</span>
+          <% end %>
+        </div>
         <%= link_to info_path do %>
           <span>A propos</span>
         <% end %>
@@ -72,7 +79,7 @@
   </div>
 
 <!-- Right Navigation MOBILE -->
-<div class="navbar-mobile-darktheme hidden-md hidden-lg">
+<div class="navbar-mobile-darktheme hidden-sm hidden-md hidden-lg">
  <!-- Logo -->
   <%= link_to root_path, class: "navbar-brand-mobile" do %>
     <%= "#{ENV['FIRSTNAME'][0].capitalize} #{ENV['LASTNAME'][0].capitalize}" %>
