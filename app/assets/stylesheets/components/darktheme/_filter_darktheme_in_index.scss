@@ -151,8 +151,8 @@
 #mobile-filter-search-darktheme {
   position: fixed;
   border: 1px solid white;
-  width: 70px;
-  height: 70px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   display: flex;
   box-shadow: 1px 4px 1px rgba(0,0,0,0.5);
@@ -163,6 +163,6 @@
   margin-top: -7px;
   .fa {
     margin: auto auto;
-    font-size: 30px;
+    font-size: 25px;
   }
 }
