@@ -1,5 +1,5 @@
 <% content_for(:description) do %>
-  <%= ("#{@ceramique.name}. Prix: #{humanized_money(@ceramique.price)} €. #{@ceramique.description}").squish %>
+  <%= ("#{@ceramique.description}").squish %>
 <% end %>
 <% content_for(:title_tag) do %>
   Les céramiques d'Hélène Raynal. <%= @ceramique.name.capitalize %>. Prix : <%= humanized_money(@ceramique.price)%> €. Livraison sous <%= @admin.tracking%>.
