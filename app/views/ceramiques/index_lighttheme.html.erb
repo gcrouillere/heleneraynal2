@@ -14,6 +14,8 @@ Mes céramiques sont en faïence émaillée. Le décor est composé de calligrap
   <% end %>
 <% end %>
 
+<%= render 'shared/lighttheme_photo_loading'%>
+
 <div class="container-lighttheme">
   <div class="row">
        <% @ceramiques.each_with_index do |ceramique, index| %>
@@ -23,15 +25,12 @@ Mes céramiques sont en faïence émaillée. Le décor est composé de calligrap
                 <div class="img-container ceramique-front-image-<%=index%>">
                   <style>
                     .ceramique-front-image-<%=index%> {
-                      <% if ceramique.photos[1]%>
-                        background-image: url(<%= cl_image_path ceramique.photos[1].path, quality: "auto" %>);
-                      <% end %>
                       background-image: url(<%= cl_image_path ceramique.photos[0].path, quality: "auto" %>);
                     }
                     <% if ceramique.photos[1]%>
                     .ceramique-front-image-<%=index%>:hover {
                       <% if  cl_image_path ceramique.photos[1]%>
-                        background-image: url(<%= cl_image_path ceramique.photos[1].path, quality: "auto" %>);
+                        background-image: url(<%= cl_image_path ceramique.photos[1].path, quality: "60" %>);
                       <% end %>
                     }
                     <% end %>
@@ -63,48 +62,3 @@ Mes céramiques sont en faïence émaillée. Le décor est composé de calligrap
 </div>
 
 <%= render 'shared/subscribe' %>
-
-<% content_for(:after_js) do %>
-  <script type="application/ld+json">
-  {
-    "@context": "http://schema.org",
-    "@type": "ArtGallery",
-    "name": "Les céramiques artisanales d'Hélène Raynal",
-    "description": "Online craft store",
-    "openingHours": "Mo-Fr 09:00-18:00",
-    "telephone": "<%= ENV['TELEPHONE']%>",
-    "url": "<%=request.original_url%>",
-    "image":"<%=request.original_url%><%= image_path ENV['HOMEPIC']%>",
-    "address":"<%= ENV['ADDRESS'].gsub(/[+]/, ' ')%>",
-    "priceRange":"20€ à 800€"
-  }
-  </script>
-
-  <!-- Include AlgoliaSearch JS Client and autocomplete.js library -->
-  <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js"></script>
-
-  <!-- Initialize autocomplete menu -->
-  <script>
-  var algoliaAPPID = String('<%=ENV['ALGOLIAPPID']%>')
-  var algoliasearchKey = String('<%=ENV['ALGOLISEARCHKEY']%>')
-  var client = algoliasearch(algoliaAPPID, algoliasearchKey);
-  var index = client.initIndex('Ceramique');
-  //initialize autocomplete on search input (ID selector must match)
-  autocomplete('#aa-search-input',
-  { hint: false }, {
-      source: autocomplete.sources.hits(index, {hitsPerPage: 5}),
-      //value to be displayed in input control after user's suggestion selection
-      displayKey: 'name',
-      //hash of templates used when rendering dataset
-      templates: {
-          //'suggestion' templating function used to render a single suggestion
-          suggestion: function(suggestion) {
-            return '<span>' + suggestion._highlightResult.name.value + '</span>'
-            + '<span>' + suggestion._highlightResult.description.value + '</span>'
-            +'<span>' + suggestion._highlightResult.category.name.value + '</span>';
-          }
-      }
-  });
-  </script>
-<% end %>
