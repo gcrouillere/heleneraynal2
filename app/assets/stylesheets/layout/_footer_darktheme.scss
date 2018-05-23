@@ -62,7 +62,7 @@ h6.visible {
   #footer {
     display: block !important;
     .fakecenteringbloc {
-      width: 41px;
+      width: 59px;
     }
   }
   .contact-default {
@@ -80,6 +80,9 @@ h6.visible {
         font-size: 11px;
         margin: 2px;
       }
+    }
+    .icone-bloc.laptop-only-footer-link {
+      display: none !important;
     }
   }
   .footer-center-infos {
