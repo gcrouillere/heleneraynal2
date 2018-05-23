@@ -34,5 +34,4 @@ $('#close-search, #close-search-darktheme').on('click', function() {
   $('#ceramique-filters-content-darktheme-nav').css({'top': '100vh'});
   $('.navbar-mobile-darktheme').css({'display': 'flex'});
   $('body').removeClass('filter-opened');
-  console.log('clic')
 });
