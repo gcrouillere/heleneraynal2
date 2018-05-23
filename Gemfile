@@ -73,6 +73,10 @@ gem "algoliasearch-rails"
 # Redirection
 gem 'rack-host-redirect'
 
+# PDF
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+
 group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'

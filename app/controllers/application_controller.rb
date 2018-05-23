@@ -14,15 +14,15 @@ class ApplicationController < ActionController::Base
   end
 
   def retrieve_admin
-    @admin = User.where(admin: true).first
+    @admin = ::User.where(admin: true).first
   end
 
   def check_theme
-    @active_theme = Theme.where(active: true).first || Theme.create(active: true, name: "default")
+    @active_theme = ::Theme.where(active: true).first || ::Theme.create(active: true, name: "default")
   end
 
   def uniq_categories
-    @uniq_categories = Ceramique.where(active: true).map do |ceramique|
+    @uniq_categories = ::Ceramique.where(active: true).map do |ceramique|
       ceramique.category.name
     end
     @uniq_categories = @uniq_categories.uniq.sort
