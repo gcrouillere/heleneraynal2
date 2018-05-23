@@ -64,7 +64,9 @@ ActiveAdmin.register Order do
       id = category.id
       category.ceramiques.each do |ceramique|
         ceramique.offer ? discount = ceramique.offer.discount : discount = 0
-        sum += ceramique.basketlines.where("updated_at >= ?", Time.now - duration * 3600 * 24).sum(:quantity) * ceramique.price * (1 - discount)
+        sum += ((ceramique.basketlines.where("updated_at >= ?", Time.now - duration * 3600 * 24) - Order.where.not(state: "paid").map {|order| order.basketlines}.flatten)
+        .map {|basketline| basketline.quantity}
+        .reduce(:+) || 0) * ceramique.price * (1 - discount)
       end
       if sum > 0
         category_sorted << [sum, id]

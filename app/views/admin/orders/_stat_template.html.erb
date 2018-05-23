@@ -5,7 +5,7 @@
       <% @duration == 30 ? local_orders = @last_month_orders : local_orders = @last_six_month_orders %>
       <% @duration == 30 ? local_categories = @one_month_categories : local_categories = @six_month_categories %>
       <h3> Nombre de ventes : <%= local_orders.count %></h3>
-      <h3> Chiffre d'affaire : <%= local_orders.sum(:amount_cents) / 100.0 %> €</h3>
+      <h3> Chiffre d'affaire : <%= local_categories.inject(0) {|sum, array| sum + array[0]} %> €</h3>
     </div>
     <h3 class="display-one-month">Ventes par catégories (<a href="#">afficher les produits)</a> : </h3>
     <div class="detailed-stat">
@@ -16,7 +16,9 @@
         <% sum = 0 %>
         <% category.ceramiques.each do |ceramique| %>
           <% ceramique.offer ? discount = ceramique.offer.discount : discount = 0 %>
-          <% current_ceramique_value = ceramique.basketlines.where("updated_at >= ?", Time.now - @duration * 3600 * 24).sum(:quantity) * ceramique.price * (1 - discount) %>
+          <% current_ceramique_value = ((ceramique.basketlines.where("updated_at >= ?", Time.now - @duration * 3600 * 24) - Order.where.not(state: "paid").map {|order| order.basketlines}.flatten)
+            .map {|basketline| basketline.quantity}
+            .reduce(:+) || 0) * ceramique.price * (1 - discount) %>
           <% if  current_ceramique_value > 0 %>
             <p class="inner-CA">ID <%= ceramique.id %> - <%= ceramique.name %> : <%= current_ceramique_value %> €</p>
           <% end %>
