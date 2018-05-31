@@ -51,6 +51,10 @@ class ApplicationController < ActionController::Base
     session[:previous_url] || root_path
   end
 
+  def after_sign_out_path_for(resource_or_scope)
+    request.referer
+  end
+
   # 2 - Permitted parameters for sign_in/up
   def configure_permitted_parameters
     # For additional fields in app/views/devise/registrations/new.html.erb
@@ -60,6 +64,7 @@ class ApplicationController < ActionController::Base
       :adress,
       :zip_code,
       :city,
+      :country,
       :provider,
       :uid,
       :facebook_picture_url,
@@ -75,6 +80,7 @@ class ApplicationController < ActionController::Base
       :adress,
       :zip_code,
       :city,
+      :country,
       ])
   end
 

@@ -1,7 +1,7 @@
 $(document).ready(function() {
   $('body').on('click', '.thumbnail', toggleActiveThumbnail);
   $('body').on('click', '.thumbnail-lighttheme', toggleActiveThumbnailLighttheme);
-  if($('.ceramique-images').size() > 0) {replaceAAF()}
+  if($('.ceramique-images').length > 0) {replaceAAF()}
   $('#zoom01').elevateZoom({
     zoomType: "inner",
     cursor: "crosshair",
