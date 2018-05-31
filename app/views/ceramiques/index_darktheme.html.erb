@@ -157,8 +157,8 @@ Mes céramiques sont en faïence émaillée. Le décor est composé de calligrap
     },
     "offers": {
       "@type": "AggregateOffer",
-      "lowPrice": "<%= humanized_money(@ceramiques.minimum(:price_cents)) %>",
-      "highPrice": "<%= humanized_money(@ceramiques.maximum(:price_cents)) %>",
+      "lowPrice": "<%= humanized_money(@ceramiques.minimum(:price_cents) / 100) %>",
+      "highPrice": "<%= humanized_money(@ceramiques.maximum(:price_cents) / 100) %>",
       "priceCurrency": "EUR"
     }
   }
