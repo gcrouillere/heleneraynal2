@@ -78,9 +78,19 @@
     top: -2px;
     position: relative;
   }
+  .lightcart {
+    width: 23px;
+    top: -1px;
+    position: relative;
+  }
 }
 
 .navbar-laptop-darktheme, .navbar-mobile-darktheme {
+    .lightcart {
+      width: 23px;
+      top: -1px;
+      position: relative;
+    }
     .nav-bar-list, .middle-link {
       cursor: pointer;
       display: flex;
