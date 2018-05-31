@@ -147,16 +147,20 @@ Mes céramiques sont en faïence émaillée. Le décor est composé de calligrap
 <% content_for(:after_js) do %>
   <script type="application/ld+json">
   {
-    "@context": "http://schema.org",
-    "@type": "ArtGallery",
-    "name": "Les céramiques artisanales d'Hélène Raynal",
-    "description": "Online craft store",
-    "openingHours": "Mo-Fr 09:00-18:00",
-    "telephone": "<%= ENV['TELEPHONE']%>",
-    "url": "<%=request.original_url%>",
-    "image":"<%=request.original_url%><%= image_path ENV['HOMEPIC']%>",
-    "address":"<%= ENV['ADDRESS'].gsub(/[+]/, ' ')%>",
-    "priceRange":"20€ à 800€"
+    "@context": "http://schema.org/",
+    "@type": "Product",
+    "name": "Céramiques artisanales",
+    "image": <%= raw @ceramiques.map {|ceramique| cl_image_path ceramique.photos[0].path}.to_json %>,
+    "brand": {
+      "@type": "Thing",
+      "name": "Hélène Raynal"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": "<%= humanized_money(@ceramiques.minimum(:price_cents)) %>",
+      "highPrice": "<%= humanized_money(@ceramiques.maximum(:price_cents)) %>",
+      "priceCurrency": "EUR"
+    }
   }
   </script>
   <script
