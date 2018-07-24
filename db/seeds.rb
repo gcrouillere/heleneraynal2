@@ -55,12 +55,12 @@
   csv_text = File.read(Rails.root.join('lib', 'seeds', 'ceramiques.csv'))
   csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
   csv.each do |row|
-    Ceramique.find_by_id(row['Id'].to_i).update(description: row['Description'], name: row['Name']) if Ceramique.find_by_id(row['Id'].to_i)
+    Ceramique.find_by_id(row['Id'].to_i).update(description: row['Description'], name: row['Nom']) if Ceramique.find_by_id(row['Id'].to_i)
   end
 
   csv_text = File.read(Rails.root.join('lib', 'seeds', 'categories.csv'))
   csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
   csv.each do |row|
-    Category.find_by_id(row['Id'].to_i).update(name: row['Name']) if Category.find_by_id(row['Id'].to_i)
+    Category.find_by_id(row['Id'].to_i).update(name: row['Nom']) if Category.find_by_id(row['Id'].to_i)
   end
 
