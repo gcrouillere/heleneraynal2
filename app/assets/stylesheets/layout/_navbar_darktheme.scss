@@ -69,6 +69,12 @@
   .nav-bar-list a {
     font-size: 16px;
   }
+  .dropdown-toggle {
+    padding-bottom: 3px !important;
+  }
+  .dropdown {
+    top: -1px;
+  }
 }
 
 #darktheme-filter-search {
@@ -76,11 +82,6 @@
   .searchimg {
     width: 20px;
     top: -2px;
-    position: relative;
-  }
-  .lightcart {
-    width: 23px;
-    top: -1px;
     position: relative;
   }
 }
@@ -122,6 +123,9 @@
       a:hover {
         border-bottom: none;
       }
+      span {
+       font-size: 13px;
+      }
     }
 }
 
@@ -148,10 +152,5 @@
     font-weight: 500;
     letter-spacing: 2px;
     color: white;
-  }
-  .infoimg {
-    width: 20px;
-    top: -1px;
-    position: relative;
   }
 }

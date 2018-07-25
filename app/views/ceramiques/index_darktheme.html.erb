@@ -1,6 +1,3 @@
-<% content_for(:description) do %>
-Mes céramiques sont en faïence émaillée. Le décor est composé de calligraphies, réalisées au pinceau. Ma production est constituée par des pièces uniques, utilitaires ou décoratives. Retrouvez dans la boutique des bols, des salières, des gobelets, des tableaux ...
-<% end %>
 <% content_for(:title_tag) do %>
   Les céramiques artisanales à vendre dans la boutique d'Hélène Raynal
 <% end %>
@@ -9,8 +6,12 @@ Mes céramiques sont en faïence émaillée. Le décor est composé de calligrap
     <%= cl_image_path @front_offer.ceramiques.first.photos[0].path %>
   <% end %>
   <% content_for(:description) do %>
-    <% @front_offer.discount > 0 ? discount = " - Réduction de #{(@front_offer.discount * 100).to_i} % " : discount = "" %>
-    <%= "#{@front_offer.title} #{discount} - #{@front_offer.description}".squish %>
+    <% @front_offer.discount > 0 ? discount = t(:discount_percentage, amount: "#{(@front_offer.discount * 100).to_i}") : discount = "" %>
+    <%= "#{@front_offer.title} - #{discount} - #{@front_offer.description}".squish %>
+  <% end %>
+<% else %>
+  <% content_for(:description) do %>
+    Mes céramiques sont en faïence émaillée. Le décor est composé de calligraphies, réalisées au pinceau. Ma production est constituée par des pièces uniques, utilitaires ou décoratives. Retrouvez dans la boutique des bols, des salières, des gobelets, des tableaux ...
   <% end %>
 <% end %>
 
@@ -24,21 +25,21 @@ Mes céramiques sont en faïence émaillée. Le décor est composé de calligrap
       <%= render 'shared/general_info_bubble_darktheme' %>
     </div>
     <div class="h1-index mobile hidden-md hidden-lg">
-      <h1>Céramiques : les pièces uniques en vente sur le site</h1>
+      <h1><%=t(:main_index_h1)%></h1>
       <hr>
     </div>
   <% elsif params[:offer].present? %>
     <div class="h1-index hidden-xs hidden-sm">
-      <h1> <%= @front_offer.title %> : les produits</h1>
+      <h1> <%= @front_offer.title %> <%=t(:offer_products)%></h1>
       <hr>
     </div>
   <% else %>
     <div class="h1-index hidden-xs hidden-sm">
-      <h1>Céramiques: les pièces uniques en vente sur le site</h1>
+      <h1><%=t(:main_index_h1)%></h1>
       <hr>
     </div>
     <div class="h1-index mobile hidden-md hidden-lg">
-      <h1>Les créations uniques</h1>
+      <h1> <%= t(:unique_creation)%></h1>
       <hr>
     </div>
   <% end %>
@@ -102,8 +103,8 @@ Mes céramiques sont en faïence émaillée. Le décor est composé de calligrap
     <% else %>
       <div class="col-xs-12 no-ceramique-list">
         <div class="no-ceramique">
-          <p>Nous sommes désolés, aucun produit ne correspond à cette recherche</p>
-          <%= link_to "AFFICHER TOUS LES PRODUITS", ceramiques_path, class: "btn btn-primary" %>
+          <p><%=t(:no_product)%></p>
+          <%= link_to t(:all_products), ceramiques_path, class: "btn btn-primary" %>
         </div>
       </div>
     <% end %>
@@ -131,7 +132,8 @@ Mes céramiques sont en faïence émaillée. Le décor est composé de calligrap
         <% end %>
       </div>
       <div class="mobile-submit">
-        <input type="submit" id="recherche" class="btn btn-primary recherche" value="AFFICHER LES PRODUITS">
+        <input type="hidden" name="locale" value="<%= I18n.locale%>">
+        <input type="submit" id="recherche" class="btn btn-primary recherche" value="<%=t(:display_mobile)%>">
       </div>
     </form>
   </div>
@@ -157,8 +159,8 @@ Mes céramiques sont en faïence émaillée. Le décor est composé de calligrap
     },
     "offers": {
       "@type": "AggregateOffer",
-      "lowPrice": "<%= humanized_money(@ceramiques.minimum(:price_cents) / 100) %>",
-      "highPrice": "<%= humanized_money(@ceramiques.maximum(:price_cents) / 100) %>",
+      "lowPrice": "<%= humanized_money((@ceramiques.minimum(:price_cents) || 0) / 100) %>",
+      "highPrice": "<%= humanized_money((@ceramiques.maximum(:price_cents) || 0) / 100) %>",
       "priceCurrency": "EUR"
     }
   }

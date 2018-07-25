@@ -21,7 +21,7 @@ Mon atelier se situe à Saint-Quentin-la-Poterie, dans le Gard. Venez découvrir
         <%= @markdown.html_safe %>
         <div class="social-buttons-contact">
           <a class="twitter-share-button" href="https://www.pinterest.fr/heleneraynal/c%C3%A9ramiste-raynal/" target="blank"><i class="fab fa-pinterest-square"></i></a>
-          <a id="facebook-contact" href="https://www.facebook.com/profile.php?id=100006318571742" target="blank"><i class="fab fa-facebook-square"></i></a>
+          <a id="facebook-contact" href="https://www.facebook.com/profile.php?id=100006318571742" target="blank"><i class="fab fa-facebook"></i></a>
           <a href="https://www.instagram.com/ceramisteraynal/" target="blank"><i class="fab fa-instagram"></i></a>
         </div>
       </div>
@@ -33,7 +33,7 @@ Mon atelier se situe à Saint-Quentin-la-Poterie, dans le Gard. Venez découvrir
     </div>
     <div class="social-buttons-contact">
       <a class="twitter-share-button" href="#"><i class="fab fa-twitter-square"></i></a>
-      <a id="facebook-contact" href="https://www.facebook.com/profile.php?id=100006318571742" target="blank"><i class="fab fa-facebook-square"></i></a>
+      <a id="facebook-contact" href="https://www.facebook.com/profile.php?id=100006318571742" target="blank"><i class="fab fa-facebook"></i></a>
       <a href="#"><i class="fab fa-instagram"></i></a>
     </div>
   </div>
@@ -109,19 +109,44 @@ Mon atelier se situe à Saint-Quentin-la-Poterie, dans le Gard. Venez découvrir
         handler.getMap().setZoom(6);
       });
     });
-   </script>
+  </script>
   <script type="application/ld+json">
     {
       "@context": "http://schema.org",
       "@type": "ArtGallery",
+      "image": ["<%=request.original_url%><%= image_path ENV['HOMEPIC']%>"],
+      "@id": "<%=request.original_url%>",
       "name": "Les céramiques artisanales d'Hélène Raynal",
-      "description": "Online craft store",
-      "openingHours": "Mo-Fr 09:00-18:00",
       "telephone": "<%= ENV['TELEPHONE']%>",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "12 rue de la fontaine",
+        "addressLocality": "Saint-Quentin-la-Poterie",
+        "addressRegion": "Gard",
+        "postalCode": "30700",
+        "addressCountry": "FR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": <%= ENV['LAT'].to_f %>,
+        "longitude": <%= ENV['LAT'].to_f %>
+      },
       "url": "<%=request.original_url%>",
-      "image":"<%=request.original_url%><%= image_path ENV['HOMEPIC']%>"
-      "address":"<%= ENV['ADDRESS'].gsub(/[+]/, ' ') %>",
-      "priceRange":"20€ à 800€"
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "10:00",
+          "closes": "17:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Saturday","Sunday"],
+          "opens": "closed",
+          "closes": "closed"
+        }
+      ],
+     "priceRange":"20€ à 500€"
     }
   </script>
  <% end %>
