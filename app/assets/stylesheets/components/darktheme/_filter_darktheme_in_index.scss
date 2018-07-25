@@ -24,7 +24,7 @@
     font-family: Raleway;
     letter-spacing: 2px;
     font-weight: 400;
-    font-size: $font-size-h4;
+    font-size: 30px;
     margin: 10px;
     color: white;
     background: transparent;
@@ -33,7 +33,7 @@
   h3 {
     color: white;
     margin: 20px 0 5px 0;
-    font-size: $font-size-h5;
+    font-size: 24px;
     font-weight: 400;
   }
 
@@ -44,6 +44,7 @@
 
   .prix {
     margin-bottom: 20px;
+    padding: 25px;
   }
 
   ul {
@@ -60,6 +61,7 @@
   }
   #recherche {
     width: 100%;
+    padding: 25px;
   }
 }
 
@@ -124,6 +126,7 @@
 
   .prix {
     margin-bottom: 20px;
+    padding: 25px;
   }
 
   ul {
@@ -142,6 +145,7 @@
     width: 100%;
     margin-top: 25px;
     color: white;
+    padding: 25px;
     &:hover {
       color: black;
     }

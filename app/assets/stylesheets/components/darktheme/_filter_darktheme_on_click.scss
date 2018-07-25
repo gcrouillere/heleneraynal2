@@ -34,7 +34,7 @@
   }
   h2 {
     font-weight: 300;
-    font-size: 21px;
+    font-size: 30px;
     margin-bottom: 20px;
     margin-top: 5px;
     color: white;
@@ -45,7 +45,7 @@
 
   h3 {
     margin: 20px 0 15px 0;
-    font-size: 19px;
+    font-size: 24px;
     font-weight: $font-weight-h5-search;
     padding: 5px;
     color: white;
@@ -61,6 +61,7 @@
 
   .prix {
     margin-bottom: 20px;
+    padding: 25px;
   }
 
   ul {
@@ -78,6 +79,8 @@
     text-align: center;
     #recherche  {
       width: 99%;
+      padding: 25px;
+      font-size: 20px;
       border-radius: 1px;
       color: white;
       transition: 0.1s background-color linear, 0.1s color linear;

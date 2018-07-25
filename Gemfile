@@ -34,7 +34,7 @@ gem 'stripe'
 
 #map
 gem "gmaps4rails"
-source 'https://rails-assets.org' do
+  source 'https://rails-assets.org' do
   # https://rails-assets.org
   gem "rails-assets-underscore"
 end
@@ -78,6 +78,12 @@ gem 'rack-host-redirect'
 # PDF
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
+
+#Rails variables in JS
+gem 'gon'
+
+#Models internationalization
+gem 'mobility', '~> 0.7.5'
 
 group :development, :test do
   gem 'better_errors'

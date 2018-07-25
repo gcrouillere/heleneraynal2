@@ -7,10 +7,10 @@
 
   <div class="middle-link">
       <%= link_to ceramiques_path, class: "hidden-sm" do %>
-        <span>Boutique céramique en ligne</span>
+        <span><%= t(:online_store)%></span>
       <% end %>
       <%= link_to ceramiques_path, class: "hidden-md hidden-lg" do %>
-        <span>Boutique en ligne</span>
+        <span><%= t(:online_store_mobile)%></span>
       <% end %>
   </div>
 
@@ -27,15 +27,15 @@
         <% end %>
         <div class="hidden-sm">
           <%= link_to root_path do %>
-            <span>Accueil</span>
+            <span><%=t(:home_page)%></span>
           <% end %>
         </div>
         <%= link_to info_path do %>
-          <span>A propos</span>
+          <span><%=t(:about)%></span>
         <% end %>
-        <a href="#" id="darktheme-filter-search"><%= image_tag "searchwhite.svg", class: "searchimg"%> Filtrer</a>
+        <a href="#" id="darktheme-filter-search"><%= image_tag "searchwhite.svg", class: "searchimg"%><%=t(:filter)%></a>
         <%= link_to contact_path do %>
-          <span>Contact</span>
+          <span><%=t(:contact)%></span>
         <% end %>
         <% if session[:order].present? %>
           <% if Order.where(id: session[:order]).present? %>
@@ -46,6 +46,24 @@
             <% end %>
           <% end %>
         <% end %>
+
+        <div class="dropdown">
+          <a class="dropdown-toggle" type="button" data-toggle="dropdown">
+              <%= image_tag "#{I18n.locale.upcase}.svg", class: "flag"%>
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-langages">
+            <li><%= link_to params.merge(locale: "en", change: true).permit(:locale, :change) do %>
+                  <%= image_tag "EN.svg", class: "flag"%>
+                <% end %>
+            </li>
+            <li><%= link_to params.merge(locale: "fr", change: true).permit(:locale, :change) do %>
+                  <%= image_tag "FR.svg", class: "flag"%>
+                <% end %>
+            </li>
+          </ul>
+        </div>
+
       </div>
     </div>
 
@@ -54,15 +72,15 @@
       <div class="nav-bar-list">
         <div class="hidden-sm">
           <%= link_to root_path do %>
-            <span>Accueil</span>
+            <span><%=t(:home_page)%></span>
           <% end %>
         </div>
         <%= link_to info_path do %>
-          <span>A propos</span>
+          <span><%=t(:about)%></span>
         <% end %>
-        <a href="#" id="darktheme-filter-search"><%= image_tag "searchwhite.svg", class: "searchimg"%> Filtrer</a>
+        <a href="#" id="darktheme-filter-search"><%= image_tag "searchwhite.svg", class: "searchimg"%><%=t(:filter)%></a>
         <%= link_to contact_path do %>
-          <span>Contact</span>
+          <span><%=t(:contact)%></span>
         <% end %>
         <% if session[:order].present? %>
           <% if Order.where(id: session[:order]).present? %>
@@ -73,6 +91,24 @@
             <% end %>
           <% end %>
         <% end %>
+
+        <div class="dropdown">
+          <a class="dropdown-toggle" type="button" data-toggle="dropdown">
+              <%= image_tag "#{I18n.locale.upcase}.svg", class: "flag"%>
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-langages">
+            <li><%= link_to params.merge(locale: "en", change: true).permit(:locale, :change) do %>
+                  <%= image_tag "EN.svg", class: "flag"%>
+                <% end %>
+            </li>
+            <li><%= link_to params.merge(locale: "fr", change: true).permit(:locale, :change) do %>
+                  <%= image_tag "FR.svg", class: "flag"%>
+                <% end %>
+            </li>
+          </ul>
+        </div>
+
       </div>
     </div>
   <% end %>
@@ -88,13 +124,13 @@
   <div class="navbar-item-darktheme">
     <div class="list-mobile">
       <%= link_to ceramiques_path do %>
-        <span>Shop</span>
+        <span><%=t(:shop_link_mobile)%></span>
       <% end %>
       <%= link_to info_path do %>
-        <span>A propos</span>
+        <span><%=t(:info)%></span>
       <% end %>
       <%= link_to contact_path do %>
-        <span>Contact</span>
+        <span><%=t(:contact)%></span>
       <% end %>
       <% if session[:order].present? %>
         <% if Order.where(id: session[:order]).present? %>
@@ -105,6 +141,24 @@
           <% end %>
         <% end %>
       <% end %>
+
+        <div class="dropdown">
+          <a class="dropdown-toggle" type="button" data-toggle="dropdown">
+              <%= image_tag "#{I18n.locale.upcase}.svg", class: "flag"%>
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-langages">
+            <li><%= link_to params.merge(locale: "en", change: true).permit(:locale, :change) do %>
+                  <%= image_tag "EN.svg", class: "flag"%>
+                <% end %>
+            </li>
+            <li><%= link_to params.merge(locale: "fr", change: true).permit(:locale, :change) do %>
+                  <%= image_tag "FR.svg", class: "flag"%>
+                <% end %>
+            </li>
+          </ul>
+        </div>
+
     </div>
   </div>
 
