@@ -29,9 +29,6 @@
   .navbar-laptop-darktheme .navbar-brand {
     font-size: 24px !important;
   }
-  .navbar-laptop-darktheme .middle-link a {
-    left: calc(50% - 73px) !important;
-  }
 }
 
 .navbar-laptop-darktheme {
@@ -60,14 +57,23 @@
         font-size: 18px;
         position: absolute;
         top: 21px;
-        left: calc(50% - 121px);
+
         span {
           width: 148px;
+        }
+        &.hidden-sm {
+          left: calc(50% - 121px);
+        }
+        &.hidden-md {
+          left: calc(50% - 73px);
         }
       }
     }
   .nav-bar-list a {
     font-size: 16px;
+    @media all and (min-width: 600px) and (max-width: 880px) {
+      font-size: 12px;
+    }
   }
   .dropdown-toggle {
     padding-bottom: 3px !important;
@@ -83,6 +89,9 @@
     width: 20px;
     top: -2px;
     position: relative;
+    @media all and (min-width: 600px) and (max-width: 880px) {
+      width: 15px;
+    }
   }
 }
 
@@ -95,6 +104,7 @@
     .nav-bar-list, .middle-link {
       cursor: pointer;
       display: flex;
+      align-items: center;
       list-style: none;
       a {
           text-decoration: none !important;
@@ -108,6 +118,9 @@
       }
       a:hover {
         border-bottom: 1px solid white;
+      }
+      .languages a {
+        display: inline-block;
       }
     }
     /* mobile */
@@ -145,6 +158,10 @@
   .navbar-brand-mobile {
     text-align: center;
     margin: auto 0 auto 10px;
+    @media all and (max-width: 380px) {
+      margin: auto 0 auto 0px;
+      width: 120px;
+    }
     align-items: center;
     padding: 0px;
     font-family: Lato;

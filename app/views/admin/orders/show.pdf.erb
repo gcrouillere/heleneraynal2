@@ -14,7 +14,7 @@
 <br>
 <h2>Contenu de la commande</h2>
 
-   <table style="width: 100%; text-align: center">
+      <table style="width: 100%; text-align: center">
       <tr>
         <th>Référence produit</th>
         <th>Quantité</th>
@@ -23,14 +23,12 @@
         <th>Prix TTC</th>
       </tr>
       <% resource.basketlines.each do |basketline| %>
-      <% basketline.ceramique.offer ? discount =  basketline.ceramique.offer.discount : discount = 0 %>
       <tr>
-        <td>ID : <%= basketline.ceramique.id %> - <%= basketline.ceramique.name.capitalize %></td>
-        <td><%= basketline.quantity %></td>
-        <% @order.promo ? promo_order = @order.promo.percentage : promo_order = 0 %>
-        <td><%= humanized_money(basketline.ceramique.price * 1.0 * (1 - discount) * basketline.quantity * (1 - ENV['TVA'].to_f) * (1 - promo_order)) %> €</td>
-        <td><%= humanized_money(basketline.ceramique.price * (1 - discount) * basketline.quantity * ENV['TVA'].to_f * (1 - promo_order)) %> €</td>
-        <td><%= humanized_money(basketline.ceramique.price * (1 - discount) * basketline.quantity * (1 - promo_order))%> €</td>
+        <td><%= basketline.ceramique_name.capitalize %></td>
+        <td><%= basketline.ceramique_qty %></td>
+        <td><%= humanized_money(basketline.basketline_price * (1 - ENV['TVA'].to_f)) %> €</td>
+        <td><%= humanized_money(basketline.basketline_price * ENV['TVA'].to_f) %> €</td>
+        <td><%= humanized_money(basketline.basketline_price)%> €</td>
       </tr>
       <% end %>
       <tr>
@@ -42,6 +40,12 @@
       </tr>
     </table>
 
+<% if ISO3166::Country.find_country_by_alpha2(resource.user.country).subregion.include? "urope" %>
+  <p>TVA non applicable (article 293 B du CGI)</p>
+<% else %>
+    <p>Exonération de TVA art 262-I du code général des impots"</p>
+<% end %>
+
 <% if resource.take_away %>
 <p> La commande est à retirer en magasin, pas de frais de port.</p>
 <p><strong>Total TTC :</strong> <%= humanized_money(resource.amount) %> €</p>
@@ -50,4 +54,5 @@
 <p><strong>Total TTC :</strong> <%= humanized_money(resource.amount + resource.port) %> €</p>
 <% end %>
 
-<h3>Facture règlée le <%= resource.updated_at.strftime("%d/%m/%Y") %> par carte bancaire, sur le site <%= ENV['APPNAME'] %>.</h3>
+<h3>Date facture :  <%= resource.updated_at.strftime("%d/%m/%Y") %>. Payée par carte bancaire, sur le site <%= ENV['APPNAME'] %>.</h3>
+<h3>Référence de la facture : <%= resource.id%></h3>
