@@ -25,7 +25,7 @@
             <span>Agenda</span>
           <% end %>
         <% end %>
-        <div class="hidden-sm">
+        <div class="hidden-sm hidden-md">
           <%= link_to root_path do %>
             <span><%=t(:home_page)%></span>
           <% end %>
@@ -47,21 +47,13 @@
           <% end %>
         <% end %>
 
-        <div class="dropdown">
-          <a class="dropdown-toggle" type="button" data-toggle="dropdown">
-              <%= image_tag "#{I18n.locale.upcase}.svg", class: "flag"%>
-            <span class="caret"></span>
-          </a>
-          <ul class="dropdown-menu dropdown-menu-langages">
-            <li><%= link_to params.merge(locale: "en", change: true).permit(:locale, :change) do %>
-                  <%= image_tag "EN.svg", class: "flag"%>
-                <% end %>
-            </li>
-            <li><%= link_to params.merge(locale: "fr", change: true).permit(:locale, :change) do %>
-                  <%= image_tag "FR.svg", class: "flag"%>
-                <% end %>
-            </li>
-          </ul>
+        <div class="languages">
+          <%= link_to params.merge(locale: "en", change: true).permit(:locale, :change) do %>
+            <%= image_tag "EN.svg", class: "flag"%>
+          <% end %>
+          <%= link_to params.merge(locale: "fr", change: true).permit(:locale, :change) do %>
+            <%= image_tag "FR.svg", class: "flag"%>
+          <% end %>
         </div>
 
       </div>
@@ -70,7 +62,7 @@
   <% else %>
     <div class="navbar-item-darktheme">
       <div class="nav-bar-list">
-        <div class="hidden-sm">
+        <div class="hidden-sm hidden-md">
           <%= link_to root_path do %>
             <span><%=t(:home_page)%></span>
           <% end %>
@@ -92,21 +84,13 @@
           <% end %>
         <% end %>
 
-        <div class="dropdown">
-          <a class="dropdown-toggle" type="button" data-toggle="dropdown">
-              <%= image_tag "#{I18n.locale.upcase}.svg", class: "flag"%>
-            <span class="caret"></span>
-          </a>
-          <ul class="dropdown-menu dropdown-menu-langages">
-            <li><%= link_to params.merge(locale: "en", change: true).permit(:locale, :change) do %>
-                  <%= image_tag "EN.svg", class: "flag"%>
-                <% end %>
-            </li>
-            <li><%= link_to params.merge(locale: "fr", change: true).permit(:locale, :change) do %>
-                  <%= image_tag "FR.svg", class: "flag"%>
-                <% end %>
-            </li>
-          </ul>
+        <div class="languages">
+          <%= link_to params.merge(locale: "en", change: true).permit(:locale, :change) do %>
+            <%= image_tag "EN.svg", class: "flag"%>
+          <% end %>
+          <%= link_to params.merge(locale: "fr", change: true).permit(:locale, :change) do %>
+            <%= image_tag "FR.svg", class: "flag"%>
+          <% end %>
         </div>
 
       </div>
@@ -118,7 +102,7 @@
 <div class="navbar-mobile-darktheme hidden-sm hidden-md hidden-lg">
  <!-- Logo -->
   <%= link_to root_path, class: "navbar-brand-mobile", title: "Retour à l'accueil du e-shop d'Hélène Raynal" do %>
-    <%= "#{ENV['FIRSTNAME'][0].capitalize} #{ENV['LASTNAME'][0].capitalize}" %>
+    Hélène Raynal
   <% end %>
 
   <div class="navbar-item-darktheme">
@@ -142,22 +126,22 @@
         <% end %>
       <% end %>
 
-        <div class="dropdown">
-          <a class="dropdown-toggle" type="button" data-toggle="dropdown">
-              <%= image_tag "#{I18n.locale.upcase}.svg", class: "flag"%>
-            <span class="caret"></span>
-          </a>
-          <ul class="dropdown-menu dropdown-menu-langages">
-            <li><%= link_to params.merge(locale: "en", change: true).permit(:locale, :change) do %>
-                  <%= image_tag "EN.svg", class: "flag"%>
-                <% end %>
-            </li>
-            <li><%= link_to params.merge(locale: "fr", change: true).permit(:locale, :change) do %>
-                  <%= image_tag "FR.svg", class: "flag"%>
-                <% end %>
-            </li>
-          </ul>
-        </div>
+      <div class="dropdown">
+        <a class="dropdown-toggle" type="button" data-toggle="dropdown">
+            <%= image_tag "#{I18n.locale.upcase}.svg", class: "flag"%>
+          <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-langages">
+          <li><%= link_to params.merge(locale: "en", change: true).permit(:locale, :change) do %>
+                <%= image_tag "EN.svg", class: "flag"%>
+              <% end %>
+          </li>
+          <li><%= link_to params.merge(locale: "fr", change: true).permit(:locale, :change) do %>
+                <%= image_tag "FR.svg", class: "flag"%>
+              <% end %>
+          </li>
+        </ul>
+      </div>
 
     </div>
   </div>
