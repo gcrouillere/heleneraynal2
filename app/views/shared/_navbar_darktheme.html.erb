@@ -48,11 +48,14 @@
         <% end %>
 
         <div class="languages">
-          <%= link_to params.merge(locale: "en", change: true).permit(:locale, :change) do %>
-            <%= image_tag "EN.svg", class: "flag"%>
-          <% end %>
-          <%= link_to params.merge(locale: "fr", change: true).permit(:locale, :change) do %>
-            <%= image_tag "FR.svg", class: "flag"%>
+          <% if I18n.locale.to_s == "fr" %>
+            <%= link_to params.merge(locale: "en", change: true).permit(:locale, :change) do %>
+              <%= image_tag "EN.svg", class: "flag"%>
+            <% end %>
+          <% else %>
+            <%= link_to params.merge(locale: "fr", change: true).permit(:locale, :change) do %>
+              <%= image_tag "FR.svg", class: "flag"%>
+            <% end %>
           <% end %>
         </div>
 
@@ -85,11 +88,14 @@
         <% end %>
 
         <div class="languages">
-          <%= link_to params.merge(locale: "en", change: true).permit(:locale, :change) do %>
+          <% if I18n.locale.to_s == "fr" %>
+            <%= link_to params.merge(locale: "en", change: true).permit(:locale, :change) do %>
             <%= image_tag "EN.svg", class: "flag"%>
           <% end %>
-          <%= link_to params.merge(locale: "fr", change: true).permit(:locale, :change) do %>
-            <%= image_tag "FR.svg", class: "flag"%>
+          <% else %>
+            <%= link_to params.merge(locale: "fr", change: true).permit(:locale, :change) do %>
+              <%= image_tag "FR.svg", class: "flag"%>
+            <% end %>
           <% end %>
         </div>
 
