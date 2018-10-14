@@ -25,11 +25,9 @@
             <span>Agenda</span>
           <% end %>
         <% end %>
-        <div class="hidden-sm hidden-md">
-          <%= link_to root_path do %>
-            <span><%=t(:home_page)%></span>
-          <% end %>
-        </div>
+        <%= link_to root_path, class: "hidden-sm hidden-md" do %>
+          <span><%=t(:home_page)%></span>
+        <% end %>
         <%= link_to info_path do %>
           <span><%=t(:about)%></span>
         <% end %>
@@ -65,11 +63,9 @@
   <% else %>
     <div class="navbar-item-darktheme">
       <div class="nav-bar-list">
-        <div class="hidden-sm hidden-md">
-          <%= link_to root_path do %>
-            <span><%=t(:home_page)%></span>
-          <% end %>
-        </div>
+        <%= link_to root_path, class: "hidden-sm hidden-md" do %>
+          <span><%=t(:home_page)%></span>
+        <% end %>
         <%= link_to info_path do %>
           <span><%=t(:about)%></span>
         <% end %>
