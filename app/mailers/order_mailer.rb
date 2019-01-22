@@ -1,4 +1,6 @@
+# Order Mailer Controller
 class OrderMailer < ApplicationMailer
+  # frozen_string_literal: true
 
   def confirmation_mail_after_order(user, order)
     @user = user
@@ -11,7 +13,7 @@ class OrderMailer < ApplicationMailer
   def mail_francoise_after_order(user, order)
     @user = user
     @order = order
-    mail(to: "#{ENV['EMAIL']}", subject: 'Nouvelle commande recue')
+    mail(to: ENV['EMAIL'].to_s, subject: 'Nouvelle commande recue')
   end
 
   def send_tracking_after_order(user)
