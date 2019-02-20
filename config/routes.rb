@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   mount Attachinary::Engine => "/attachinary"
 
   scope do
+    #Position management through JS
+    get '/ceramiques/update_positions_after_swap_in_admin', to: "ceramiques#update_positions_after_swap_in_admin"
     resources :ceramiques, path: "ceramiques", only: [:create, :index, :destroy, :show, :update]
   end
 
@@ -51,8 +53,5 @@ Rails.application.routes.draw do
       resources :promos, only: [:show]
     end
   end
-
-  #Position management through JS
-  get '/ceramiques/update_positions_after_swap_in_admin', to: "ceramiques#update_positions_after_swap_in_admin"
 
 end
