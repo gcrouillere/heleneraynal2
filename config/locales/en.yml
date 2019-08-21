@@ -137,6 +137,8 @@ en:
   send: "SEND"
   online_store: "Ceramic online shop"
   online_store_mobile: "Ceramic shop"
+  pay_by_card: "Pay by card"
+  payment_failure: "Payment failure, your card was not charged. Please retry."
   activerecord:
     errors:
       messages:

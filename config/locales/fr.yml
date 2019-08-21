@@ -133,6 +133,8 @@ fr:
   online_store: "Boutique céramique en ligne"
   online_store_mobile: "Boutique en ligne"
   send: "ENVOYER"
+  pay_by_card: "Payer par carte"
+  payment_failure: "Erreur lors du paiement, votre carte n'a pas été débitée. Veuillez réessayer."
   day:
     one: "Jour"
     other: "Jours"
