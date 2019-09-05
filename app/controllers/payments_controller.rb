@@ -26,11 +26,14 @@ class PaymentsController < ApplicationController
       cancel_url: new_order_payment_url(@order),
     )
 
+    puts payments_create_stripe_payment_url(order_id: @order.id)
+
     @stripe_session = session["id"]
     @order.update(stripe_session: session["id"])
     @order.take_away ? @order_in_js = @order.amount_cents : @order_in_js = @order.amount_cents + @order.port_cents
     gon.order_in_js = @order_in_js.to_f / 100
   end
+
 
   def create_stripe_payment
     session = Stripe::Checkout::Session.retrieve(@order.stripe_session)
