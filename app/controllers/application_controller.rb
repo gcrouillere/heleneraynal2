@@ -11,12 +11,6 @@ class ApplicationController < ActionController::Base
   after_action :store_location
 
   def default_url_options
-    if Rails.env.production?
-      { :host => "heleneraynal.fr" }
-    end
-  end
-
-  def default_url_options
     { host: ENV["HOST"] || "localhost:3000", locale: I18n.locale }
   end
 

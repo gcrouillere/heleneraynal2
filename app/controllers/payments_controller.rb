@@ -26,8 +26,6 @@ class PaymentsController < ApplicationController
       cancel_url: new_order_payment_url(@order),
     )
 
-    puts payments_create_stripe_payment_url(order_id: @order.id)
-
     @stripe_session = session["id"]
     @order.update(stripe_session: session["id"])
     @order.take_away ? @order_in_js = @order.amount_cents : @order_in_js = @order.amount_cents + @order.port_cents
