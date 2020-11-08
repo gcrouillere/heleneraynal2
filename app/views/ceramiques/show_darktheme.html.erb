@@ -5,7 +5,7 @@
   Les céramiques d'Hélène Raynal. <%= @ceramique.name.capitalize %>. Prix : <%= humanized_money(@ceramique.price)%> €. Livraison sous <%= @admin.tracking%>.
 <% end %>
 <% content_for(:meta_image) do %>
-  <%= cl_image_path @ceramique.photos[0].path %>
+  <%= cl_image_path @ceramique.photos[0]&.path || "" %>
 <% end %>
 
 <div class="container">
@@ -25,7 +25,7 @@
                 <% photo.height > photo.width ? verticale = true : nil %>
               <% end %>
               <% verticale ? classe = "verticale" : classe = "horizontale"  %>
-              <img class="img-front <%= classe %> " id="zoom01" src="<%= cl_image_path @ceramique.photos[0].path, quality: "auto" %>" data-zoom-image="<%= cl_image_path @ceramique.photos[0].path, quality: "auto" %>" alt="<%=@ceramique.category.name + " " + @ceramique.name%>">
+              <img class="img-front <%= classe %> " id="zoom01" src="<%= cl_image_path @ceramique.photos[0]&.path || "", quality: "auto" %>" data-zoom-image="<%= cl_image_path @ceramique.photos[0]&.path || "", quality: "auto" %>" alt="<%=@ceramique.category.name + " " + @ceramique.name%>">
               <%= image_tag "aaflogoblack.jpg", class: "aaflogo" %>
               <div class="images">
                 <% @ceramique.photos.each_with_index do |photo, index| %>
@@ -92,7 +92,7 @@
               <% end %>
                 <div class="col-sm-4 same-category-product-card">
                   <%= link_to ceramique_path(ceramique) , title: "#{ceramique.category} - #{ceramique.name}", class: "same-category-product-card-link"  do %>
-                  <img class="same-product-photo" src="<%= cl_image_path ceramique.photos[0].path, quality: "auto"%>" alt="<%=@ceramique.category.name + " " + @ceramique.name%>">
+                  <img class="same-product-photo" src="<%= cl_image_path ceramique.photos[0]&.path || "", quality: "auto"%>" alt="<%=@ceramique.category.name + " " + @ceramique.name%>">
                   <div class="same-category-product-card-text">
                     <p class="ceramique-name"><%= ceramique.name.capitalize%></p>
                     <% ceramique.offer ? discount =  ceramique.offer.discount : discount = 0 %>
@@ -126,7 +126,7 @@
           <%= facebook_share_id("facebooksharemobile") %>
           <h1> <%= @ceramique.name.capitalize%> </h1>
           <div class="image-xs-sm">
-            <img class="img-front" src="<%= cl_image_path @ceramique.photos[0].path, quality: "auto" %>" alt="<%=@ceramique.name%>">
+            <img class="img-front" src="<%= cl_image_path @ceramique.photos[0]&.path || "", quality: "auto" %>" alt="<%=@ceramique.name%>">
           </div>
         </div>
         <div class="other-imgs other-mobile-darktheme">

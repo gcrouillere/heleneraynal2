@@ -30,7 +30,7 @@ Mes céramiques sont en faïence émaillée. Le décor est composé de calligrap
                 <div class="img-container ceramique-front-image-<%=index%>">
                   <style>
                     .ceramique-front-image-<%=index%> {
-                      background-image: url(<%= cl_image_path ceramique.photos[0].path, quality: "auto" %>);
+                      background-image: url(<%= cl_image_path ceramique.photos[0]&.path || "", quality: "auto" %>);
                     }
                     <% if ceramique.photos[1]%>
                     .ceramique-front-image-<%=index%>:hover {
